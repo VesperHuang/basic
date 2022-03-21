@@ -42,11 +42,24 @@ func apply(op func(int, int) int, a, b int) int {
 	return op(a, b)
 }
 
+// func swap(a, b *int) {
+// 	*b, *a = *a, *b
+// }
+
+func swap(a, b int) (int, int) {
+	return b, a
+}
+
 func main() {
 	// fmt.Println(apply(pow, 3, 4))
 
-	fmt.Println(apply(
-		func(a, b int) int {
-			return int(math.Pow(float64(a), float64(b)))
-		}, 3, 4))
+	// fmt.Println(apply(
+	// 	func(a, b int) int {
+	// 		return int(math.Pow(float64(a), float64(b)))
+	// 	}, 3, 4))
+
+	a, b := 3, 4
+	// swap(&a, &b)
+	a, b = swap(a, b)
+	fmt.Println(a, b)
 }
